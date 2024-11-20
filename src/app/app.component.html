@@ -20,6 +20,7 @@
       </a>
 
       <a
+        *ngIf="auth.isLoggedOut$ | async"
         mat-button
         class="menu-item"
         routerLink="/login"
@@ -30,6 +31,7 @@
       </a>
     </div>
 
+    <!-- posso iscrivermi agli obeservables del service auth.store tramite pipe async -->
     <a mat-button class="menu-item" *ngIf="auth.isLoggedIn$ | async">
       <mat-icon>help</mat-icon>
     </a>
