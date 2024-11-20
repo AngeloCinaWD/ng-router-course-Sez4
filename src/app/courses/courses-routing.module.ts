@@ -9,6 +9,7 @@ import { lessonsResolver } from "./services/lessons.resolver";
 import { lessonDetailResolver } from "./services/lesson-detail.resolver";
 import { authGuard } from "../services/auth.guard";
 import { authChildGuard } from "../services/auth-child.guard";
+import { confirmExitGuard } from "../services/confirm-exit.guard";
 
 // creo una auth.guard.ts in app/services, in questo file implemento il metodo CanActivate ed in base a questo determino se un utente è loggato o no
 const routes: Routes = [
@@ -26,6 +27,8 @@ const routes: Routes = [
     // per fare in modo che siano protette anche le rotte child devo implementare la guard CanActivateChild
     // questo perchè se facessi il logout senza un redirect ad esempio alla pagina di login e rimarrei all'interno di una rotta child, se non ricarico la pagina, posso continuare a navigare dall'interno, ad esempio tornando indietro, cambioando video, cambiando lesson etc etc
     canActivateChild: [authChildGuard],
+    // applichiamo la guard confirmExit per la proprietà canDeactivate
+    canDeactivate: [confirmExitGuard],
     resolve: {
       course: CourseResolver,
     },

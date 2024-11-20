@@ -22,4 +22,10 @@ export class CourseComponent implements OnInit {
 
     this.course = this.route.snapshot.data["course"];
   }
+
+  // per utilizzare il CanDeactivate si implementa un metodo nel componente della rotta che si vuole lasciare che deve ritornare un booleano
+  // questo metodo verrà richiamato nella guard con la CanDeactivate
+  confirmExit() {
+    return confirm("vuoi abbandonare la pagina?");
+  }
 }
