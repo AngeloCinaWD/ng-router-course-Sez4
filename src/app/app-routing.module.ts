@@ -9,10 +9,11 @@ import { LoginComponent } from "./login/login.component";
 import { AboutComponent } from "./about/about.component";
 import { CoursesModule } from "./courses/courses.module";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { authGuard } from "./services/auth.guard";
 
 // un authentication router guard è un service speciale che ci consente di determinare se un utente può o non può accedere a determinate rotte
 // implementiamo questo sistema tramite Router
-
+// il service CanActivate router guard viene invocato prima che inizi la transizione verso la rotta alla quale si applica
 const routes: Routes = [
   {
     path: "",
