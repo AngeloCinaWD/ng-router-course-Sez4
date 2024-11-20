@@ -1,0 +1,6 @@
+<!-- questo componente renderizza uno spinner di caricamento da mostrare quando avviene il fetch dei dati dal BE oppure quando viene eseguito il lazy loading di un modulo -->
+<!-- l'*ngIf si basa su un metodo contenuto in un service che restituisce un observable e viene gestito direttamente nel template tramite pipe async che mi fa il subscribe all'oservable  -->
+<!-- se l'observable è true viene mostrato lo spinner di caricamento -->
+<div class="spinner-container" *ngIf="loadingService.loading$ | async">
+  <mat-spinner></mat-spinner>
+</div>

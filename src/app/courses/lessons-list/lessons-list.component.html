@@ -1,0 +1,23 @@
+<h3>All Lessons</h3>
+
+<table class="lessons-table mat-elevation-z7" *ngIf="lessons && lessons.length">
+  <thead>
+    <th>#</th>
+    <th>Description</th>
+    <th>Duration</th>
+  </thead>
+
+  <!-- al click su una lesson voglio essere portato ad una certa rotta, specifica per ogni lesson -->
+  <!-- la rotta che voglio costruire parte da localhost:4200/courses/courseUrl -->
+  <!-- io devo aggiungere la parte fissa lessons e poi il numero identificativo della lesson -->
+  <!-- quindi ['lessons', lesson.seqNo] ed ottengo localhost:4200/courses/courseUrl/lessons/seqNo -->
+  <tr
+    class="lesson-row"
+    *ngFor="let lesson of lessons"
+    [routerLink]="['lessons', lesson.seqNo]"
+  >
+    <td class="seqno-cell">{{ lesson.seqNo }}</td>
+    <td class="description-cell">{{ lesson.description }}</td>
+    <td class="duration-cell">{{ lesson.duration }}</td>
+  </tr>
+</table>
